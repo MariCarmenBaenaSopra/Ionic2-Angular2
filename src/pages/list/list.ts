@@ -1,7 +1,6 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-
 import { NavController, NavParams } from 'ionic-angular';
-
 import { ItemDetailsPage } from '../item-details/item-details';
 
 @Component({
@@ -16,7 +15,7 @@ export class ListPage {
     this.icons = ['archive', 'attach', 'briefcase', 'contacts'];
 
     this.items = [];
-    for(let i = 1; i < 5; i++) {
+    for(let i = 1; i < 10; i++) {
       this.items.push({
         title: 'Sala ' + i,
         note: 'This is room #' + i,
@@ -29,5 +28,9 @@ export class ListPage {
     this.navCtrl.push(ItemDetailsPage, {
       item: item
     });
+  }
+
+  init() {
+    this.navCtrl.setRoot(HomePage);
   }
 }

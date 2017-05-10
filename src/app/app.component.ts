@@ -19,7 +19,11 @@ export class MyApp {
   constructor(
     public platform: Platform, 
     public auth: Auth,
-    public menu: MenuController) {
+    public menu: MenuController
+    /*public StatusBar,
+    public Splashscreen*/
+  ) {
+    this.initializeApp();
   
    // set our app's pages
     this.pages = [
@@ -48,8 +52,8 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      /*this.statusBar.styleDefault();
-      this.splashScreen.hide();*/
+      StatusBar.styleDefault();
+      Splashscreen.hide();
     });
   }
 
