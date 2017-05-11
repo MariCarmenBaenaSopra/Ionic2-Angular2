@@ -1,36 +1,35 @@
+import { HomePage } from './../pages/home/home';
 import { ListPage } from './../pages/list/list';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-
-/*import { HomePage } from '../pages/home/home';*/
 import { LoginPage } from '../pages/login/login';
 import { Auth } from '@ionic/cloud-angular';
 
 @Component({
+  selector: 'page-app',
   templateUrl: 'app.html'
 })
 export class MyApp {
+  /**Nav: NavController --> componente de navegacion */
   @ViewChild(Nav) nav: Nav;
 
   rootPage = LoginPage;
   pages: Array<{ title: string, component: any }>;
 
   constructor(
-    public platform: Platform, 
-    public auth: Auth,
-    public menu: MenuController
-    /*public StatusBar,
-    public Splashscreen*/
+    public platform: Platform,    /**Platform      --> obtener informacion sobre el dispositivo que se esta usando (tablet, mv, etc) */
+    public auth: Auth,           /**auth           --> autentificacion email/password */
+    public menu: MenuController  /**MenuController --> proveedor que facilita el control de 1 menu */
   ) {
     this.initializeApp();
   
    // set our app's pages
     this.pages = [
-          { title: 'Planta 2', component: ListPage },
-          { title: 'Planta 3', component: ListPage },
-          { title: 'Planta 8', component: ListPage },
-          { title: 'Planta 9', component: ListPage }
+          { title: 'Floor 2', component: ListPage },
+          { title: 'Floor 3', component: ListPage },
+          { title: 'Floor 8', component: ListPage },
+          { title: 'Floor 9', component: ListPage }
     ];
 
     platform.ready().then(() => {
@@ -59,9 +58,14 @@ export class MyApp {
 
   openPage(page) {
     // close the menu when clicking a link from the menu
-    this.menu.close();
+    this.menu.close();  /**cerrar el menu (menuToggle) */
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  return() {
+    this.menu.close();          /**cerrar el menu (menuToggle)*/
+    this.nav.setRoot(HomePage); /**Enviar a la pagina deseada = HomePage */
   }
 
 }
