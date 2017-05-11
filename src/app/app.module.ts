@@ -1,3 +1,4 @@
+import { ComponentPage } from './../pages/component/component';
 import { ItemDetailsPage } from './../pages/item-details/item-details';
 import { ListPage } from './../pages/list/list';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,8 @@ const cloudSettings: CloudSettings = {
     HomePage,
     LoginPage,
     ListPage,
-    ItemDetailsPage
+    ItemDetailsPage,
+    ComponentPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -31,7 +33,8 @@ const cloudSettings: CloudSettings = {
     HomePage,
     LoginPage,
     ListPage,
-    ItemDetailsPage  ],
+    ItemDetailsPage,
+    ComponentPage  ],
   providers: []
 })
 export class AppModule {}

@@ -1,9 +1,9 @@
 <ion-header>
   <ion-navbar>
-    <button menuToggle *ngIf="!selectedItem">
+    <button menuToggle *ngIf="!selectedItem" class="button-style">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title>Rooms Details</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,4 +15,8 @@
   <h4 text-center *ngIf="selectedItem">
     You navigated here from <b>{{selectedItem.title}}</b>
   </h4>
+
+  <button class="style-button-details" (click)="component()"> 
+    <ion-icon name="md-body"></ion-icon>
+  </button>
 </ion-content>

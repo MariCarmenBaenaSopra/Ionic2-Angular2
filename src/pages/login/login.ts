@@ -14,7 +14,12 @@ export class LoginPage {
   password:string = '';
   name:string = '';
 
-  constructor(public navCtrl: NavController, public auth:Auth, public user: User, public alertCtrl: AlertController, public loadingCtrl:LoadingController) {}
+  constructor(public navCtrl: NavController, 
+              public auth:Auth, 
+              public user: User, 
+              public alertCtrl: AlertController,  
+              public loadingCtrl:LoadingController  /**Una superposición que puede usarse para indicar actividad mientras bloquea la interacción del usuario. */
+  ) {}
 
   ionViewDidLoad() {
     console.log('Hello LoginPage Page');
@@ -31,22 +36,22 @@ export class LoginPage {
       if(this.email === '' || this.password === '') {
         let alert = this.alertCtrl.create({
           title:'Register Error', 
-          subTitle:'All fields are rquired',
+          subTitle:'All fields are required',
           buttons:['OK']
         });
-        alert.present();
+        alert.present();      /**Mostrar la alerta */
         return;
       }     
 
       let loader = this.loadingCtrl.create({
         content: "Logging in..."
       });
-      loader.present();
+      loader.present();    
       
       this.auth.login('basic', {'email':this.email, 'password':this.password}).then(() => {
         console.log('ok i guess?');
         loader.dismissAll();
-        this.navCtrl.setRoot(HomePage);                
+        this.navCtrl.setRoot(HomePage);  /*Para cambiar de pantalla */                
       }, (err) => {
         loader.dismissAll();
         console.log(err.message);

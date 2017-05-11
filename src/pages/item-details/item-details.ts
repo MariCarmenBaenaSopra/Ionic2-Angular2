@@ -1,5 +1,5 @@
+import { ComponentPage } from './../component/component';
 import { Component } from '@angular/core';
-
 import { NavController, NavParams } from 'ionic-angular';
 
 
@@ -13,5 +13,9 @@ export class ItemDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
+  }
+
+  component() {
+    this.navCtrl.setRoot(ComponentPage);
   }
 }
